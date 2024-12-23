@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Mum</title>
+    <link rel="stylesheet" href="https://use.typekit.net/maa1mfx.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: gryphius-mvb, sans-serif;
+            background: url('wallpaper.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            color: #000;
+            overflow-x: hidden;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            z-index: -1;
+        }
+
+        header {
+            padding: 10px;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 1.5em;
+        }
+
+        .image-container {
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        .image-container img {
+            max-width: 150px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .image-caption {
+            font-size: 0.9em;
+            margin-top: 5px;
+            color: #555;
+            text-align: right;
+        }
+
+        /* Falling hearts */
+        .heart {
+            position: fixed;
+            top: -50px;
+            font-size: 16px;
+            color: red;
+            animation: fall linear infinite;
+            font-family: sans-serif;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <header>
+        <h1>To Mum</h1>
+    </header>
+    <main>
+        <p>
+            I want to take a moment to properly apologise for the way I've been acting lately.
+        </p>
+        <p>
+            First, I know I haven't been speaking to you as kindly or respectfully as I should have recently. I've been blunt and extremely demanding, which is completely unfair, especially considering everything you do for me—on top of dealing with your health. I really hate the way I've made you feel unappreciated, and I'm so sorry for that. I know you're doing your best, and I should be more appreciative and considerate.
+        </p>
+        <p>
+            I also want to apologise for how I handled the situation with Mairead's present. In the heat of the moment, we were both extremely excited and ended up opening them without asking you first, knowing you were looking after Rou and me falsely assuming he was poorly sick. I didn't stop to think it through properly or consider how it might make you feel after we agreed you'd give her the presents prior—I should've asked you first, and I'm sorry I didn't.
+        </p>
+        <p>
+            I should've been more clear about Mairead coming over. It's no excuse, but I've been juggling a lot of work recently and feeling really overwhelmed and stressed, and it slipped my mind. I should've made sure I asked, which I promise to do in the future.
+        </p>
+        <p>
+            I want you to know how much I appreciate you and everything you do for me. Even though I often don't show it, I truly am grateful. I should know better than to let my own predicament and lack of thought affect the way I treat you. I never want to make you feel unappreciated or hurt, and I'm so sorry for doing so. I promise to be more considerate and thoughtful in the future and to treat you with the respect and kindness you deserve.
+        </p>
+        <p>
+            I love you so much, Mum, and I hope you can forgive me for being a complete arse.
+        </p>
+        <p style="text-align: right;">Felix</p>
+        <div class="image-container">
+            <img src="sorry.png" alt="Sorry" class="sorry-img" id="sorryImg">
+            <div class="image-caption">Click the image to show my love!</div>
+        </div>
+    </main>
+
+    <script>
+        let heartsActive = false; // Flag to ensure hearts only fall after the image is clicked
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.textContent = '♥'; // ASCII heart
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = Math.random() * 16 + 10 + 'px';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        // Start falling hearts when image is clicked
+        const img = document.getElementById('sorryImg');
+        img.addEventListener('click', () => {
+            if (!heartsActive) {
+                heartsActive = true; // Activate the hearts
+                setInterval(createHeart, 300); // Create hearts every 300ms
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
